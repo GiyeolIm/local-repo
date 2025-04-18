@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-testbed
+  template:
+    metadata:
+      labels:
+        app: nginx-testbed
+    spec:
+      containers:
+      - name: www
+        image: nginx:1.17
+        ports:
+        - containerPort: 80
